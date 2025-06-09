@@ -1,0 +1,396 @@
+
+
+
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* HEADER STYLES */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1e1e1e;
+  color: white;
+  flex-wrap: wrap;
+}
+
+header img {
+  height: 50px;
+  margin-right: 1rem;
+  transition: height 0.3s ease;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left h1 {
+  font-size: 1.5rem;
+  margin-right: 2rem;
+  font-family: "fonts/Evil-Empire.otf";
+  font-weight: bold; 
+  color: #ff9900;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+.search-container {
+  margin-left: auto;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.4rem 0.6rem;
+  border-radius: .5rem;
+  border: none;
+  min-width: 120px;
+}
+
+.search-button {
+  padding-top: .2 rem;
+  padding-left: .4rem;
+  border: none;
+  background-color: #ff9900;
+  color: white;
+  border-radius: .5rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+
+}
+
+.search-button .search-icon {
+  width: 1.2rem;
+  height: 1.5rem;
+
+}
+
+/* MAIN STYLES */
+main {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background-color: white;
+}
+
+main section {
+  background-color: #e9ecef;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 .1rem .2rem rgba(0,0,0,0.05);
+  word-break: break-word;
+}
+
+
+
+
+/* 3D Model Container Styles */
+#model-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #e9ecef;
+    box-shadow: 0 .1rem .2rem rgba(0,0,0,0.05);
+}
+
+#three-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none; /* Prevents unwanted touch zoom */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #model-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    #model-container {
+        height: 250px;
+    }
+}
+
+
+
+
+
+/* FOOTER STYLES */
+footer {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-content,
+.footer-bottom {
+  margin-top: 1rem;
+}
+
+.footer-links,
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-links a,
+.social-links a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+  color: white;
+}
+
+.social-links img {
+  height: 2rem;
+  width: 2rem;
+  transition: transform 0.3s ease;
+
+}
+
+.social-links img:hover{
+  transform: scale(1.1);
+  background-color: white;
+  border-radius: 25%;
+
+}
+
+
+/* Mobile Toggle Styles */
+.mobile-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Responsive Rules - Tablet */
+@media (max-width: 768px) {
+  .nav-links,
+  .search-container {
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links.show,
+  .search-container.show {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .search-form {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Responsive Rules - Mobile (under 225px) */
+@media (max-width: 224px) {
+  /* Header Adjustments */
+  header {
+    padding: 0.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-left h1 {
+    font-size: 0.8rem;
+    white-space: normal;
+    word-break: break-word;
+    margin-right: 0;
+  }
+
+  header img {
+    height: 30px;
+    margin-right: 0.3rem;
+  }
+
+  .mobile-toggle {
+    font-size: 1.5rem;
+    padding: 0.2rem;
+  }
+
+  /* Navigation Adjustments */
+  .nav-links {
+    gap: 0.3rem;
+    padding: 0 0 0 0;
+
+  }
+
+  .nav-links a {
+    padding: 0.2rem 0;
+    font-size: 5vw;
+  }
+
+  /* Search Form Adjustments */
+  .search-container {
+    margin: 0 0 0 0;
+    /* width: 100%; */
+    padding: .2rem 0 0 0;
+    height: 2.5rem;
+
+  }
+
+  .search-form {
+    flex-direction: row;
+    gap: 0.2rem;
+    padding: 0 0 0.2rem 0;
+    height: 1.8rem;
+    margin: 0 0 0 0;
+  }
+
+  .search-input {
+    padding: 0.2rem 0.3rem;
+    font-size: 3.2vw;
+    min-width: 0;
+    width: 70%;
+  }
+
+  .search-button {
+    padding: 0.2rem 0.4rem;
+    font-size: 3.2vw;
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+
+  /* Main Content Adjustments */
+  main {
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+
+  main section {
+    padding: 0.5rem;
+    font-size: 3.5vw;
+  }
+
+  /* Footer Adjustments */
+  footer {
+    padding: 0.5rem;
+    font-size: 3.2vw;
+  }
+
+  .footer-links,
+  .social-links {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  /* Base Text Scaling */
+  body {
+    font-size: 3.5vw;
+  }
+}
+
+/* Very Small Height Adjustment */
+@media (max-height: 400px) {
+  main {
+    padding: 0.5rem;
+  }
+  
+  header, footer {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 425px){
+  .nav-left h1 {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 320px){
+  .nav-left h1 {
+    font-size: .8rem;
+    margin-right: 0.5rem;
+  }
+}
+@media (max-width: 280px){
+  .nav-left h1 {
+    word-break: break-word;
+  }
+}
